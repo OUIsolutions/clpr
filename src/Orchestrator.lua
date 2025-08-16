@@ -1,6 +1,6 @@
 
 
 
-Orchestrator.newOrchestrator  = function ()
+Orchestrator.newOrchestrator  = function (props)
     
 end
