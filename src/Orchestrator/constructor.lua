@@ -10,5 +10,6 @@ MainModule.newOrchestrator  = function (props)
 
     local selfobject = heregitage.newMetaObject()
     selfobject.public_props_extends(props)
+    selfobject.public.actions = {}
     return selfobject.public
 end
