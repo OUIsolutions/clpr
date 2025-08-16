@@ -6,9 +6,9 @@ Orchestrator.newOrchestrator  = function (props)
     if not props.args then 
         error("args is required")
     end 
-    
+
 
     local selfobject = heregitage.newMetaObject()
-    selfobject.public_props_extend(props)
+    selfobject.public_props_extends(props)
     return selfobject.public
 end
