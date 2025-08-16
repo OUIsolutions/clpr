@@ -3,7 +3,8 @@ function install_dependencies()
   if not darwin.dtw.isfile("dependencies/herigitage.lua") then 
     os.execute("curl -L https://github.com/mateusmoutinho/LuaHeritage/releases/download/1.0.0/heregitage.lua -o dependencies/herigitage.lua")
   end
-end 
+end
+
 function build_embed_code()
 local heregitage = darwin.dtw.load_file("dependencies/herigitage.lua")
 
