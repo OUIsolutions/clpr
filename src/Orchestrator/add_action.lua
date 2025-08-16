@@ -18,5 +18,5 @@ function PublicOrchestrator.add_action(public,private,props)
         callback = props.callback,
     } 
     public.actions[#public.actions + 1] = action
-
-end 
+    return props.name
+end
