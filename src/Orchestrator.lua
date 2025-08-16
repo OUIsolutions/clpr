@@ -2,5 +2,7 @@
 
 
 Orchestrator.newOrchestrator  = function (props)
-    local meta_object = 
+    local selfobject = heregitage.newMetaObject()
+    selfobject.public_props_extend(props)
+    return selfobject.public
 end
