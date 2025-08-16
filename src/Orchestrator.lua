@@ -14,6 +14,6 @@ function MainModule.newOrchestrator (props)
 end
 
 function MainModule.internal_test()
-    local removed = Args.remove_start_str(string, "clpraction=teste", "clpraction=")
+    local removed = Args.remove_start_str("clpraction=teste", "clpraction=")
     print(removed)
 end 
