@@ -18,13 +18,14 @@ local heregitage = darwin.dtw.load_file("dependencies/herigitage.lua")
       all[#all  +1 ] = darwin.dtw.load_file(file) .."\n"
     end
     all[#all + 1] = [[
-      return CLPRModule;
+      return Orchestrator;
   end)()]]
   return table.concat(all, "\n")
 end
 function  build_lib_code()
     local embed  = build_embed_code()
     lib = "return "..embed
+    return lib
 end
 
 function  main()
