@@ -18,7 +18,7 @@ local heregitage = darwin.dtw.load_file("dependencies/herigitage.lua")
       all[#all  +1 ] = darwin.dtw.load_file(file) .."\n"
     end
     all[#all + 1] = [[
-      return Orchestrator;
+      return MainModule;
   end)()]]
   return table.concat(all, "\n")
 end
