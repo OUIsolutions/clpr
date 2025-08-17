@@ -19,8 +19,8 @@ function ActionConstructor.construct(public_orchestrator,action_name,args)
     local sanitized_args = Args.sanitize_args(public_orchestrator.string, public_orchestrator.args)
     sanitized_args[#sanitized_args+1] = "clpraction="..action_name
     sanitized_args[#sanitized_args+1] = "clprdir="..selfobject.public.action_dir
-    sanitized_args[#sanitized_args+1] = "&" 
     local formmated_command = Args.format_args(public_orchestrator.string, sanitized_args)
+    formmated_command = formmated_command .." &"
     public_orchestrator.execute_command(formmated_command)
 
     local started_check_path = selfobject.public.action_dir.."/started"
