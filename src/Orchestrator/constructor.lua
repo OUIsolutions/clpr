@@ -12,7 +12,7 @@ MainModule.newOrchestrator  = function (props)
 
     local selfobject = heregitage.newMetaObject()
     selfobject.public_props_extends(props)
-    selfobject.public_methods_extends(PublicOrchestrator)
+    selfobject.public_method_extends(PublicOrchestrator)
     selfobject.public.string = props.string or string 
     local entries = Args.collect_entries(selfobject.public.string, props.args)
     
