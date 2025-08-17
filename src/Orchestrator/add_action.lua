@@ -1,5 +1,5 @@
 
-function Orchestrator.add_action(public,private,props)
+function PublicOrchestrator.add_action(public,private,props)
     if not props.name then
         error("Action name is required")
     end
