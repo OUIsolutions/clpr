@@ -3,7 +3,9 @@
 function MetaAction.__gc(public,private)
    public.remove_dir(public.action_dir)
    if public.kill_process_on_end then
-       public.kill_process_by_pid(public.action_pid)
+       if public.is_alive() then
+            public.kill_process_by_pid(public.action_pid)
+       end
    end
 end
 
