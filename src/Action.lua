@@ -22,5 +22,16 @@ function ActionConstructor.construct(public_orchestrator,action_name,args)
     sanitized_args[#sanitized_args+1] = "&" 
     local formmated_command = Args.format_args(public_orchestrator.string, sanitized_args)
     public_orchestrator.execute_command(formmated_command)
+
+    local started_check_path = selfobject.public.action_dir.."/started"
+    local total_started_checks = 0
+    while true do 
+        local started_content = public_orchestrator.load_file(started_check_path)
+        if started_content then
+            break
+        end
+        total_started_checks = total_started_checks + 1
+    end
+    print("total started checks: " .. total_started_checks)
     return selfobject.public
 end 

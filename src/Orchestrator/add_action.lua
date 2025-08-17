@@ -27,7 +27,7 @@ function PublicOrchestrator.add_action(public,private,props)
         if entries_content then 
             callback_args = public.loader(entries_content)
         end
-        
+        os.execute("sleep 1") -- wait for the action directory to be created
         local started_path = public.dir.."/started"
         public.write_file(started_path, "1")
         local pid_path = public.dir.."/pid"
