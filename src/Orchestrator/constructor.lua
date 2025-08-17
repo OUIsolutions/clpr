@@ -152,9 +152,9 @@ MainModule.newOrchestrator  = function (props)
         selfobject.public.execute_command = os.execute
     end
     if not props.max_started_checks then
-        selfobject.public.max_started_checks = 50000
+        selfobject.public.max_started_checks = 500000
     end
-    
+
     local entries = Args.collect_entries(selfobject.public.string, props.args)
     
     if  entries then 
