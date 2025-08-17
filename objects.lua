@@ -3,3 +3,4 @@ local PublicOrchestrator = {}
 local MainModule  = {}
 local ActionConstructor = {}
 local PublicAction = {}
+local MetaAction = {}
