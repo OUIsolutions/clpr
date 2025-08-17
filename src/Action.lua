@@ -47,8 +47,7 @@ function ActionConstructor.construct(public_orchestrator,action_name,args)
     public_orchestrator.execute_command(formmated_command)
 
     local started_check_path = selfobject.public.action_dir.."/started"
-    local total_started_checks = 0
-    while true do 
+    for i = 1, public_orchestrator.max_started_checks do
         local started_content = public_orchestrator.load_file(started_check_path)
         if started_content == "1" then 
             selfobject.public.action_pid = public_orchestrator.load_file(selfobject.public.action_dir.."/pid")
@@ -58,8 +57,10 @@ function ActionConstructor.construct(public_orchestrator,action_name,args)
             selfobject.public.action_pid = public_orchestrator.to_number(selfobject.public.action_pid)
             break
         end
-        total_started_checks = total_started_checks + 1
     end
-
+    if not selfobject.public.action_pid then
+        error("Action process not started")
+    end
+    
     return selfobject.public
 end 

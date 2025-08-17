@@ -118,7 +118,12 @@ MainModule.newOrchestrator  = function (props)
         end
     end
 
-    
+    if props.max_started_checks then
+        if type(props.max_started_checks) ~= "number" then
+            error("max_started_checks must be a number if provided")
+        end
+    end
+
     heregitage.pairs = props.pairs or pairs
     heregitage.type = props.type or type
     heregitage.setmetatable = props.setmetatable or setmetatable
@@ -142,11 +147,14 @@ MainModule.newOrchestrator  = function (props)
     if not props.to_number then
         selfobject.public.to_number = tonumber
     end
-    
+
     if not props.execute_command then 
         selfobject.public.execute_command = os.execute
     end
-
+    if not props.max_started_checks then
+        selfobject.public.max_started_checks = 50000
+    end
+    
     local entries = Args.collect_entries(selfobject.public.string, props.args)
     
     if  entries then 
