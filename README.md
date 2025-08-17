@@ -3,7 +3,7 @@
 # CLPR - Command Line Process Runner
 ![Lua Logo](https://img.shields.io/badge/CLPR-0.1.0-blue?style=for-the-badge&logo=lua)
 [![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://github.com/OUIsolutions/clpr/blob/main/LICENSE)
-![Status](https://img.shields.io/badge/Status-Production-green?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-ALPHA-green?style=for-the-badge)
 ![Platforms](https://img.shields.io/badge/Platforms-Windows%20%7C%20Linux%20%7C%20macOS-lightgrey?style=for-the-badge)
 
 </div>
