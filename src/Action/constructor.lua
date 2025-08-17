@@ -16,6 +16,6 @@ function ActionConstructor.construct(public_orchestrator,action_name,args)
     sanitized_args[#sanitized_args+1] = "clprdir="..selfobject.public.action_dir
     sanitized_args[#sanitized_args+1] = "&" 
     local formmated_command = Args.format_args(public_orchestrator.string, sanitized_args)
-    
+    public_orchestrator.execute_command(formmated_command)
     return selfobject.public
 end 
