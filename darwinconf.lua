@@ -10,7 +10,7 @@ local heregitage = darwin.dtw.load_file("dependencies/herigitage.lua")
 
   local all = {[[(function()]]}
     all[#all + 1] = darwin.dtw.load_file("objects.lua") .. "\n"
-    all[#all + 1] = "local Heregitage = (function()  "..heregitage .. " end\n)()\n"
+    all[#all + 1] = "local heregitage = (function()  "..heregitage .. " end\n)()\n"
 
     local files = darwin.dtw.list_files_recursively("src",true)
 
