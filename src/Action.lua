@@ -1,4 +1,9 @@
 
+
+function MetaAction.__gc(public,private)
+   --public.remove_dir(public.action_dir) 
+end
+
 function ActionConstructor.construct(public_orchestrator,action_name,args)
     local selfobject = heregitage.newMetaObject()
     selfobject.public_props_extends(public_orchestrator)
