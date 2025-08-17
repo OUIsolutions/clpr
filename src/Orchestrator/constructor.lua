@@ -120,6 +120,7 @@ MainModule.newOrchestrator  = function (props)
 
     local selfobject = heregitage.newMetaObject()
     selfobject.public_props_extends(props)
+    selfobject.meta_method_extends(MetaOrchestrator)
     selfobject.public.total_runned_actions = 0
     selfobject.public.actions  = {}
     selfobject.public.args = {}
