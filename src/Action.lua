@@ -1,7 +1,8 @@
 
 
 function MetaAction.__gc(public,private)
-   --public.remove_dir(public.action_dir) 
+   --public.remove_dir(public.action_dir)
+   public.kill_process_by_pid(public.action_pid)
 end
 PublicAction.is_alive = function(public,private)
     if not public.action_pid then
