@@ -43,7 +43,10 @@ MainModule.newOrchestrator  = function (props)
     if not props.kill_process_by_pid then
         error("kill_process_by_pid function is required")
     end
-
+    local type = type 
+    if props.type  then 
+        type = props.type
+    end
     -- Validate argument types
     if type(props.args) ~= "table" then
         error("args must be a table")
