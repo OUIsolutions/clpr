@@ -22,6 +22,11 @@ function PublicOrchestrator.add_action(public,private,props)
 
     if props.name == public.action_name then
         local entries_dir = public.dir.."/entries.lua"
+        local entries_content = public.load_file(entries_dir)
+        local callback_args = nil
+        if entries_content then 
+            callback_args = public.loader(entries_content)
+        end
         
     end
 
