@@ -106,6 +106,11 @@ MainModule.newOrchestrator  = function (props)
             error("string must be a table (string module) if provided")
         end
     end
+    if props.to_number then
+        if type(props.to_number) ~= "function" then
+            error("to_number must be a function if provided")
+        end
+    end
 
     if props.execute_command then
         if type(props.execute_command) ~= "function" then
@@ -134,7 +139,10 @@ MainModule.newOrchestrator  = function (props)
     if not props.string then
         selfobject.public.string = string 
     end
-
+    if not props.to_number then
+        selfobject.public.to_number = tonumber
+    end
+    
     if not props.execute_command then 
         selfobject.public.execute_command = os.execute
     end

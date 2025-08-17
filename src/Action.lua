@@ -55,6 +55,7 @@ function ActionConstructor.construct(public_orchestrator,action_name,args)
             if not selfobject.public.action_pid then
                 error("Action process not started")
             end
+            selfobject.public.action_pid = public_orchestrator.to_number(selfobject.public.action_pid)
             break
         end
         total_started_checks = total_started_checks + 1
