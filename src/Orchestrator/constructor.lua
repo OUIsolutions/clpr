@@ -83,12 +83,10 @@ MainModule.newOrchestrator  = function (props)
     end
 
     -- Validate optional arguments if provided
-    if props.pairs and type(props.pairs) ~= "function" then
-        error("pairs must be a function if provided")
-    end
-
-    if props.type and type(props.type) ~= "function" then
-        error("type must be a function if provided")
+    if props.pairs  then
+        if type(props.pairs) ~= "function" then
+            error("pairs must be a function if provided")
+        end
     end
 
     if props.setmetatable  then
@@ -97,12 +95,16 @@ MainModule.newOrchestrator  = function (props)
         end 
     end
 
-    if props.string and type(props.string) ~= "table" then
-        error("string must be a table (string module) if provided")
+    if props.string  then
+        if type(props.string) ~= "table" then
+            error("string must be a table (string module) if provided")
+        end
     end
 
-    if props.execute_command and type(props.execute_command) ~= "function" then
-        error("execute_command must be a function if provided")
+    if props.execute_command then
+        if type(props.execute_command) ~= "function" then
+            error("execute_command must be a function if provided")
+        end
     end
 
     
@@ -114,6 +116,7 @@ MainModule.newOrchestrator  = function (props)
     selfobject.public_props_extends(props)
     selfobject.public_method_extends(PublicOrchestrator)
     selfobject.public.string = props.string or string 
+    
     local entries = Args.collect_entries(selfobject.public.string, props.args)
     
     if  entries then 
