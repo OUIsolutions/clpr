@@ -7,5 +7,18 @@ function Args.remove_start_str(string_module, str, target_str)
 end
 
 function Args.collect_entries(string_module, args)
-    
+   local entries ={}
+   for i=1,#args do
+       local arg = args[i]
+       if Args.starts_with(string_module, arg, "clpraction") then
+           entries.action_name = Args.remove_start_str(string_module, arg, "clpraction=")
+       end
+        if Args.starts_with(string_module, arg, "clprdir") then
+        entries.dir = Args.remove_start_str(string_module, arg, "clprdir=")
+        end 
+   end
+   if entries.action_name and entries.dir then
+       return entries
+   end
+   return nil
 end
