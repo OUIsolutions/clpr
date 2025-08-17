@@ -13,6 +13,9 @@ MainModule.newOrchestrator  = function (props)
     local selfobject = heregitage.newMetaObject()
     selfobject.public_props_extends(props)
     selfobject.public.string = props.string or string 
-    
+    if not props.execute_command then 
+        selfobject.public.execute_command = os.execute
+    end
+
     return selfobject.public
 end
