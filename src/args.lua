@@ -8,7 +8,7 @@ end
 
 function Args.format_args(string_module,args)
     local content = ""
-    for i=0,#args do
+    for i=1,#args do
         local current = args[i]
         local small_aspas_found = string_module.find(current, "'")
         local big_aspas_found = string_module.find(current, '"')
@@ -28,7 +28,7 @@ end
 
 function Args.sanitize_args(string_module,args)
     local sanitized = {}
-    for i=0,#args do
+    for i=1,#args do
         local arg = args[i]
         if not Args.starts_with(string_module, arg, "clpraction") and not Args.starts_with(string_module, arg, "clprdir") then
             sanitized[#sanitized + 1] = arg
@@ -39,7 +39,7 @@ end
 
 function Args.collect_entries(string_module, args)
    local entries ={}
-   for i=0,#args do
+   for i=1,#args do
        local arg = args[i]
        if Args.starts_with(string_module, arg, "clpraction") then
            entries.action_name = Args.remove_start_str(string_module, arg, "clpraction=")
