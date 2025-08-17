@@ -114,6 +114,7 @@ MainModule.newOrchestrator  = function (props)
 
     local selfobject = heregitage.newMetaObject()
     selfobject.public.total_runned_actions = 0
+    selfobject.public.actions  = {}
     selfobject.public_props_extends(props)
     selfobject.public_method_extends(PublicOrchestrator)
     if not props.string then

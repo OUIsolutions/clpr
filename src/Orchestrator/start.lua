@@ -7,5 +7,7 @@ function PublicOrchestrator.start_action(public,private,action_name)
     local sanitized_args = Args.sanitize_args(public.string, public.args)
     sanitized_args[#sanitized_args+1] = "clpraction="..action_name
     sanitized_args[#sanitized_args+1] = "clprdir="..action_dir
-
+    sanitized_args[#sanitized_args+1] = "&" 
+    local formmated_args = Args.format_args(public.string, sanitized_args)
+    print("Executing: clpr "..formmated_args)
 end 

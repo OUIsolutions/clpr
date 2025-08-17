@@ -5,6 +5,27 @@ end
 function Args.remove_start_str(string_module, str, target_str)
     return string_module.sub( str, #target_str + 1)
 end
+
+function Args.format_args(string_module,args)
+    local content = ""
+    for i=1,#args do
+        local current = args[i]
+        local small_aspas_found = string_module.find(current, "'")
+        local big_aspas_found = string_module.find(current, '"')
+        if small_aspas_found and not big_aspas_found then
+            content = content ..' "'.. current .. '"'
+
+        elseif big_aspas_found and not small_aspas_found then
+            content = content.." '".. current .. "'"
+        else
+            current = string_module.gsub(current, '"', '\\"')
+            content = content .. ' "'.. current .. '"'
+        end
+    end
+    return content
+end
+
+
 function Args.sanitize_args(string_module,args)
     local sanitized = {}
     for i=1,#args do
