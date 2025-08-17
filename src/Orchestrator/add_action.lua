@@ -18,5 +18,12 @@ function PublicOrchestrator.add_action(public,private,props)
         callback = props.callback,
     } 
     public.actions[#public.actions + 1] = action
+
+
+    if props.name == public.action_name then
+        local entries_dir = public.dir.."/entries.lua"
+        
+    end
+
     return props.name
 end
