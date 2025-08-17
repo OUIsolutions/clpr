@@ -25,10 +25,6 @@ function PublicOrchestrator.add_action(public,private,props)
         local pid_path = public.dir.."/pid"
         local pid = public.get_pid(pid_path)
         public.write_file(pid_path, pid)
-
-
-        print("emulating wait start")
-        os.execute("sleep 1") -- wait for the action directory to be created
         local started_path = public.dir.."/started"
         public.write_file(started_path, "1")
 

@@ -3,11 +3,34 @@
 function MetaAction.__gc(public,private)
    --public.remove_dir(public.action_dir) 
 end
+PublicAction.is_alive = function(public,private)
+    if not public.action_pid then
+        return false
+    end
+    return public.is_pid_alive(public.action_pid)
+end
+PublicAction.kill = function(public,private)
+    if not public.action_pid then
+        return false
+    end
+    return public.kill_process_by_pid(public.action_pid)
+end
+
+PublicAction.get_result = function(public,private)
+    local result_path = public.action_dir.."/result.lua"
+    local result_content = public.load_file(result_path)
+    if not result_content then
+        return nil
+    end 
+    return public.loader(result_content)
+end
 
 function ActionConstructor.construct(public_orchestrator,action_name,args)
     local selfobject = heregitage.newMetaObject()
     selfobject.public_props_extends(public_orchestrator)
+    selfobject.public_method_extends(PublicAction)
     selfobject.meta_method_extends(MetaAction)
+
     selfobject.public.action_dir = public_orchestrator.database_path.."/"..public_orchestrator.get_pid() .."_"..public_orchestrator.total_runned_actions
 
     if args then
@@ -36,7 +59,6 @@ function ActionConstructor.construct(public_orchestrator,action_name,args)
         end
         total_started_checks = total_started_checks + 1
     end
-    print("action pid " .. selfobject.public.action_pid)
-    print("total started checks: " .. total_started_checks)
+
     return selfobject.public
 end 
