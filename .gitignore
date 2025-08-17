@@ -2,3 +2,5 @@ release
 teste.lua
 dependencies
 .clpr
+luaDoTheWorld
+clpr.lua
