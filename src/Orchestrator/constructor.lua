@@ -134,8 +134,11 @@ MainModule.newOrchestrator  = function (props)
     selfobject.public.actions  = {}
     selfobject.public.args = {}
     -- native lua args starts in 0 so we need to adjust the index
-    for i=0,#props.args do
-        selfobject.public.args[#selfobject.public.args + 1] = props.args[i]
+    for i=-2,#props.args do
+        local current = props.args[i]
+        if current then
+            selfobject.public.args[#selfobject.public.args + 1] = props.args[i]
+        end
     end
 
 
