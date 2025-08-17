@@ -1,5 +1,9 @@
 
 
 function MainModule.internal_test()
-    print(Args.remove_start_str(string,"test_string", "test_"))  -- Should print "string"
+    local entries = Args.collect_entries(string, arg)
+    if entries then 
+        print("action name ".. entries.action_name)
+        print("dir ".. entries.dir)
+    end 
 end
