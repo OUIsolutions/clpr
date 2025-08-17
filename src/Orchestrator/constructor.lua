@@ -5,7 +5,9 @@ MainModule.newOrchestrator  = function (props)
 
     if not props.args then 
         error("args is required")
-    end 
+    end
+
+    
     heregitage.pairs = props.pairs or pairs
     heregitage.type = props.type or type
     heregitage.setmetatable = props.setmetatable or setmetatable
