@@ -27,9 +27,13 @@ function PublicOrchestrator.add_action(public,private,props)
         if entries_content then 
             callback_args = public.loader(entries_content)
         end
+        
+        local started_path = public.dir.."/started"
+        public.write_file(started_path, "1")
         local pid_path = public.dir.."/pid"
         local pid = public.get_pid(pid_path)
         public.write_file(pid_path, pid)
+
     end
 
     return props.name
