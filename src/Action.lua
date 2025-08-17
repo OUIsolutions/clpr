@@ -12,8 +12,8 @@ function ActionConstructor.construct(public_orchestrator,action_name,args)
 
     if args then
         local serialized =  public_orchestrator.dumper(args)
-        local dest = selfobject.public.action_dir.."/args.lua"
-        public_orchestrator.write_file(dest, serialized)
+        local entries_path = selfobject.public.action_dir.."/entries.lua"
+        public_orchestrator.write_file(entries_path, serialized)
     end
 
     local sanitized_args = Args.sanitize_args(public_orchestrator.string, public_orchestrator.args)
