@@ -27,8 +27,7 @@ function ActionConstructor.construct(public_orchestrator,action_name,args)
     local total_started_checks = 0
     while true do 
         local started_content = public_orchestrator.load_file(started_check_path)
-        print("start content",started_content)
-        if started_content then 
+        if started_content == "1" then 
             selfobject.public.action_pid = public_orchestrator.load_file(selfobject.public.action_dir.."/pid")
             if not selfobject.public.action_pid then
                 error("Action process not started")
