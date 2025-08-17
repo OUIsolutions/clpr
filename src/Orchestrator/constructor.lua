@@ -113,9 +113,16 @@ MainModule.newOrchestrator  = function (props)
     heregitage.setmetatable = props.setmetatable or setmetatable
 
     local selfobject = heregitage.newMetaObject()
+    selfobject.public_props_extends(props)
     selfobject.public.total_runned_actions = 0
     selfobject.public.actions  = {}
-    selfobject.public_props_extends(props)
+    selfobject.public.args = {}
+    for i=0,#props.args do
+        selfobject.public.args[#selfobject.public.args + 1] = props.args[i]
+    end
+
+
+
     selfobject.public_method_extends(PublicOrchestrator)
     if not props.string then
         selfobject.public.string = string 
