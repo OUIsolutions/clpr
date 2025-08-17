@@ -17,7 +17,7 @@ curl -L https://github.com/OUIsolutions/clpr/releases/download/0.1.0/lib.lua -o 
 create a file called `test.lua` with the following content:
 ```lua
 local dtw = require("luaDoTheWorld/luaDoTheWorld")
-local clpr = require("release/lib")
+local clpr = require("clpr")
 
 local orchestrator = clpr.newOrchestrator({
     args = arg,
