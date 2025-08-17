@@ -1,9 +1,12 @@
 
 
 function MetaAction.__gc(public,private)
-   --public.remove_dir(public.action_dir)
-   public.kill_process_by_pid(public.action_pid)
+   public.remove_dir(public.action_dir)
+   if public.kill_process_on_end then
+       public.kill_process_by_pid(public.action_pid)
+   end
 end
+
 PublicAction.is_alive = function(public,private)
     if not public.action_pid then
         return false
@@ -43,7 +46,8 @@ function ActionConstructor.construct(public_orchestrator,action_name,args)
     selfobject.public_props_extends(public_orchestrator)
     selfobject.public_method_extends(PublicAction)
     selfobject.meta_method_extends(MetaAction)
-
+    -- the safest aproach its the default 
+    selfobject.public.kill_process_on_end = true 
     selfobject.public.action_dir = public_orchestrator.database_path.."/"..public_orchestrator.get_pid() .."_"..public_orchestrator.total_runned_actions
 
     if args then
