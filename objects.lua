@@ -1,3 +1,3 @@
 local Args = {}
-local OrchestratorFactory = {}
+local PublicOrchestrator = {}
 local MainModule  = {}

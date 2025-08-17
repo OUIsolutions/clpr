@@ -7,9 +7,8 @@ MainModule.newOrchestrator  = function (props)
         error("args is required")
     end 
 
-    local selfobject = {}
-    selfobject.props = props
-    selfobject.actions = {}
-    OrchestratorFactory.construct_add_action(selfobject)
-    return selfobject
+
+    local selfobject = heregitage.newMetaObject()
+    selfobject.public_props_extends(props)
+    return selfobject.public
 end
