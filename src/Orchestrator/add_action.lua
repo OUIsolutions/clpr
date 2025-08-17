@@ -34,6 +34,11 @@ function PublicOrchestrator.add_action(public,private,props)
         local pid = public.get_pid(pid_path)
         public.write_file(pid_path, pid)
 
+        local result = props.callback(callback_args)
+        local result_serialized = public.dumper(result)
+        local result_path = public.dir.."/result.lua"
+        public.write_file(result_path, result_serialized)
+
     end
 
     return props.name
