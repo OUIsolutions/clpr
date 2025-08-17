@@ -15,6 +15,18 @@ PublicAction.kill = function(public,private)
     end
     return public.kill_process_by_pid(public.action_pid)
 end
+PublicAction.wait = function(public,private,max_sleep_cicles,sleep_callback)
+    if not public.action_pid then
+        return false
+    end
+    for i =1,max_sleep_cicles do
+        if not public.is_alive() then 
+            return
+        end
+        sleep_callback()
+    end
+    error("Timeout waiting for action to finish")
+end
 
 PublicAction.get_result = function(public,private)
     local result_path = public.action_dir.."/result.lua"
@@ -61,6 +73,6 @@ function ActionConstructor.construct(public_orchestrator,action_name,args)
     if not selfobject.public.action_pid then
         error("Action process not started")
     end
-    
+
     return selfobject.public
 end 
