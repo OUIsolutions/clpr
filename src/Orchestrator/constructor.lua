@@ -23,8 +23,8 @@ MainModule.newOrchestrator  = function (props)
     if not props.load_file then
         error("load_file function is required")
     end
-    if not props.create_dir then
-        error("create_dir function is required")
+    if not props.remove_dir then
+        error("remove_dir function is required")
     end
 
     if not props.dumper then
@@ -54,8 +54,8 @@ MainModule.newOrchestrator  = function (props)
     if type(props.args) ~= "table" then
         error("args must be a table")
     end
-    if type(props.create_dir) ~= "function" then
-        error("create_dir must be a function")
+    if type(props.remove_dir) ~= "function" then
+        error("remove_dir must be a function")
     end
 
     if type(props.database_path) ~= "string" then
