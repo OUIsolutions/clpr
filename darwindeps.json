@@ -1,0 +1,9 @@
+[
+  {
+    "type": "gitrelease",
+    "repo": "OUIsolutions/LuaHeritage",
+    "file": "heregitage.lua",
+    "tag": "1.0.0",
+    "dest": "dependencies/herigitage.lua"
+  }
+]
