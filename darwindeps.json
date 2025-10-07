@@ -1,0 +1,12 @@
+[
+    
+    
+    {
+		"dest":	"dependencies/MDeclareApiNoDependenciesIncluded.h",
+		"file":	"heregitage.lua",
+		"repo":	"OUIsolutions/LuaHeritage",
+		"tag":	"0.2.0"
+	}
+
+
+]
