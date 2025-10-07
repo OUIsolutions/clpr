@@ -63,6 +63,12 @@ function ActionConstructor.construct(public_orchestrator,action_name,args)
     sanitized_args[#sanitized_args+1] = "clprdir="..selfobject.public.action_dir
     local formmated_command = Args.format_args(public_orchestrator.string, sanitized_args)
     formmated_command = formmated_command .." &"
+
+
+    if public_object.public.use_screen then
+        print("using screen mode")
+    end
+    
     public_orchestrator.execute_command(formmated_command)
 
     local started_check_path = selfobject.public.action_dir.."/started"
