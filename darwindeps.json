@@ -1,9 +1,8 @@
-[
-  {
-    "type": "gitrelease",
-    "repo": "OUIsolutions/LuaHeritage",
-    "file": "heregitage.lua",
-    "tag": "1.0.0",
-    "dest": "dependencies/herigitage.lua"
-  }
-]
+[{
+		"dest":	"dependencies/herigitage.lua",
+		"file":	"heregitage.lua",
+		"repo":	"OUIsolutions/LuaHeritage",
+		"tag":	"1.0.0",
+		"type":	"gitrelease",
+		"updated_at":	"2025-07-10T05:04:49Z"
+	}]
