@@ -1,6 +1,6 @@
 {
 	"assets":	["release/embed.lua", "release/lib.lua"],
-	"description":	"clpr update",
+	"description":	"screen mode allowed",
 	"release":	"{BIG_VERSION}.{SMALL_VERSION}.{PATCH_VERSION}",
 	"replacers":	{
 		"BIG_VERSION":	"0",
