@@ -22,6 +22,7 @@ cd Return-Main-Precat-rio-Operation
 ```
 
 This downloads the complete source code including:
+
 - Source files in the `src/` directory
 - Build configuration in `darwinconf.lua`
 - Documentation and examples
@@ -49,14 +50,16 @@ darwin --version
 Execute the build process using the Darwin configuration file:
 
 ```bash
-darwin run_blueprint darwinconf.lua
+darwin run_blueprint darwinconf.lua --target all
 ```
 
 This command will:
-- Read the build configuration from `darwinconf.lua`
+
+- Read the build configurations in the `build` directory
 - Download required dependencies automatically
 - Compile the source code
 - Generate release files
+- Generate type annotations file
 
 ### Step 4: Verify Build Output
 
@@ -65,13 +68,15 @@ After successful compilation, the following files will be generated in the `rele
 ```
 release/
 ├── embed.lua
-└── lib.lua
+├── lib.lua
+└── types.lua
 ```
 
 #### Generated Files
 
 - **`lib.lua`**: The main CLPR library file for standard usage
 - **`embed.lua`**: A standalone version that can be embedded directly into other projects
+- **`types.lua`**: Type annotations file of the available modules and its methods
 
 ## Using the Built Library
 
@@ -80,7 +85,9 @@ release/
 Use `lib.lua` as you would use the pre-built version:
 
 ```lua
+---@type ClprModule
 local clpr = require("release/lib")
+
 -- Continue with normal CLPR usage
 ```
 
